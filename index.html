@@ -66,7 +66,7 @@
     <h2>The Challenge</h2>
     <p>Large Language Models (LLMs) shine at free‑form text generation, yet stumble when asked to <strong>reason over temporal, semi‑structured tables</strong>. Simple “read the table &amp; answer” prompts lead to brittle performance—especially when we tweak facts, enlarge the table, or craft multi‑hop questions.</p>
     <figure>
-      <img src="assets/Pictures/Problem.png" alt="Example of direct‑prompt failure">
+      <img src="assets/Pictures/Problem.pdf" alt="Example of direct‑prompt failure">
       <figcaption>Example question where direct prompting hallucinates while symbolic SQL reasoning succeeds. fileciteturn1file7</figcaption>
     </figure>
   </section>
@@ -80,12 +80,12 @@
       <li><em>Easy → Hard</em> reasoning difficulty.</li>
     </ul>
     <figure>
-      <img src="assets/Pictures/Dataset_creation_pipeline.png" alt="Dataset creation pipeline">
+      <img src="assets/Pictures/Dataset_creation_pipeline.pdf" alt="Dataset creation pipeline">
       <figcaption>Automatic pipeline: from infobox ➞ knowledge‑graph ➞ relational DB ➞ templated questions. fileciteturn1file2</figcaption>
     </figure>
     <h3>Dataset Statistics</h3>
     <figure>
-      <img src="assets/Pictures/Dataset_stats.png" alt="Dataset statistics">
+      <img src="assets/Pictures/Dataset_stats.pdf" alt="Dataset statistics">
       <figcaption>Distribution of 5,067 test questions across splits. fileciteturn1file3</figcaption>
     </figure>
   </section>
@@ -97,7 +97,7 @@
         <h3>Direct Prompting</h3>
         <p>Feed the entire table + question into the LLM and hope Chain‑of‑Thought (CoT), Plan‑&amp;-Solve, or PoT <em>implicitly</em> reasons. In practice the model memorizes patterns, is sensitive to row order, and slows down on big tables.</p>
         <figure>
-          <img src="assets/Pictures/Direct_Prompting.png" alt="Direct prompting diagram">
+          <img src="assets/Pictures/Direct_Prompting.pdf" alt="Direct prompting diagram">
           <figcaption>Raw table ➞ free‑text rationale. fileciteturn1file4</figcaption>
         </figure>
       </div>
@@ -105,7 +105,7 @@
         <h3>Symbolic Integration</h3>
         <p>Hide the data, expose only the <em>schema</em>. The LLM must output an SQL query, which we execute to get the answer. The query is verifiable, data‑blind, and executes in <code>O(log n)</code> even for huge tables.</p>
         <figure>
-          <img src="assets/Pictures/Symbolic_Integration.png" alt="Symbolic integration diagram">
+          <img src="assets/Pictures/Symbolic_Integration.pdf" alt="Symbolic integration diagram">
           <figcaption>Schema ➞ SQL ➞ exact answer. fileciteturn1file8</figcaption>
         </figure>
       </div>
@@ -118,21 +118,21 @@
     <h3>1 · Robustness on Counterfactual Data</h3>
     <p>When we swap names, ages, or medal counts (<em>counterfactuals</em>), direct prompts drop by ≈15 EM. SQL prompting shrinks the gap to &lt;3 points.</p>
     <figure>
-      <img src="assets/Pictures/org_vs_counterfact.png" alt="Original vs counterfactual gap">
+      <img src="assets/Pictures/org_vs_counterfact.pdf" alt="Original vs counterfactual gap">
       <figcaption>SQL almost erases the Original → Counterfactual gap. fileciteturn1file6</figcaption>
     </figure>
 
     <h3>2 · Impact of Table Size</h3>
     <p>Performance of direct prompts plummets on 350‑word tables (‑25 EM). SQL is practically size‑invariant (&lt;3 EM difference) because the DB engine does the heavy lifting.</p>
     <figure>
-      <img src="assets/Pictures/table_size.png" alt="Small vs large table gap">
+      <img src="assets/Pictures/table_size.pdf" alt="Small vs large table gap">
       <figcaption>Accuracy vs. table length (figure from paper).</figcaption>
     </figure>
 
     <h3>3 · Effect of Question Complexity</h3>
     <p>SQL reasoning narrows the Easy–Hard gap by 10 EM and lifts accuracy at every level.</p>
     <figure>
-      <img src="assets/Pictures/easy_medium_hard.png" alt="Easy vs medium vs hard">
+      <img src="assets/Pictures/easy_medium_hard.pdf" alt="Easy vs medium vs hard">
       <figcaption>Symbolic integration stays strong as reasoning difficulty rises. fileciteturn1file5</figcaption>
     </figure>
   </section>
