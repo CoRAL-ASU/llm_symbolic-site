@@ -76,7 +76,7 @@
     <p>To diagnose these weaknesses we built <strong>TEMPTABQA‑C</strong>—over 200k Q&amp;A pairs drawn from Wikipedia infoboxes, stored in a relational schema and labeled across three axes:</p>
     <ul>
       <li><em>Original vs. Counterfactual</em> (we perturb facts to test memorization);</li>
-      <li><em>Small vs. Large</em> tables (up to 350 words context);</li>
+      <li><em>Small vs. Large</em> tables;</li>
       <li><em>Easy → Hard</em> reasoning difficulty.</li>
     </ul>
     <figure>
@@ -123,7 +123,7 @@
     </figure>
 
     <h3>2 · Impact of Table Size</h3>
-    <p>Performance of direct prompts plummets on 350‑word tables (‑25 EM). SQL is practically size‑invariant (&lt;3 EM difference) because the DB engine does the heavy lifting.</p>
+    <p>Performance of direct prompts plummets on large tables (‑25 EM). SQL is practically size‑invariant (&lt;3 EM difference) because the DB engine does the heavy lifting.</p>
     <figure>
       <img src="assets/Pictures/small_vs_large.png" alt="Small vs large table gap">
       <figcaption>Accuracy vs. table length.</figcaption>
